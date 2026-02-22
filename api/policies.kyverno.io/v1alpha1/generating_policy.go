@@ -81,6 +81,12 @@ type GeneratingPolicySpec struct {
 	// +optional
 	WebhookConfiguration *WebhookConfiguration `json:"webhookConfiguration,omitempty"`
 
+	// UseServerSideApply controls whether to use server-side apply for generate rules.
+	// If set to true, generated resources will use SSA instead of create/update.
+	// Defaults to false.
+	// +optional
+	UseServerSideApply bool `json:"useServerSideApply,omitempty"`
+
 	// Generation defines a set of CEL expressions that will be evaluated to generate resources.
 	// Required.
 	// +kubebuilder:validation:MinItems=1
